@@ -1,15 +1,13 @@
-export default function Quizz({ dispatch }) {
-  const quizz = { id: 7 };
+export default function Quizz({ dispatch, quizz, index }) {
   return (
     <div className="Quizz">
       <div>
-        <h3>React Knowledge</h3>
-        <p>Ready to test your knowledge on React JS, then, go heads on!</p>
+        <h3>{quizz.title}</h3>
         <button
           onClick={() =>
             dispatch({
               type: "goToQuiz",
-              payload: { mode: 2, quizz: quizz?.id },
+              payload: { mode: 2, quizz: index },
             })
           }
         >

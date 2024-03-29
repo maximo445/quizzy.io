@@ -1,4 +1,6 @@
 {
+  "title": "React Knowledge",
+  "description": "Test your Knowledge on the latest react concepts!",
   "questions": [
     {
       "question": "Which is the most popular JavaScript framework?",

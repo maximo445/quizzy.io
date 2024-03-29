@@ -33,3 +33,7 @@
 .Quizz {
   text-align: left;
 }
+
+.correctOption {
+  background: greenyellow;
+}
