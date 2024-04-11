@@ -17,6 +17,16 @@ const initialState = {
   userResults: null,
 };
 
+// "title": "React Knowledge",
+// "description": "Test your Knowledge on the latest react concepts!",
+// "questions": [
+//   {
+//     "question": "Which is the most popular JavaScript framework?",
+//     "options": ["Angular", "React", "Svelte", "Vue"],
+//     "correctOption": 1,
+//     "points": 10
+//   }
+
 function reducer(state, action) {
   switch (action.type) {
     case "setMode":
@@ -37,6 +47,20 @@ function reducer(state, action) {
           answers: action.payload.answers,
           quizz: action.payload.quizz,
         },
+      };
+    case "addQuizz":
+      return {
+        ...state,
+        mode: 0,
+        currentQuizz: null,
+        quizzes: [
+          ...state.quizzes,
+          {
+            title: action.payload.quizz.title,
+            description: action.payload.quizz.description,
+            questions: action.payload.questions,
+          },
+        ],
       };
     default:
       throw new Error("unrecognized action");
@@ -60,7 +84,7 @@ function App() {
         {state.mode === 0 && (
           <Quizzes dispatch={dispatch} quizzes={state.quizzes} />
         )}
-        {state.mode === 1 && <QuizzCreator dispatch={dispatch} />}
+        {state.mode === 1 && <QuizzCreator outerDispatch={dispatch} />}
         {state.mode === 2 && (
           <QuizzPreview
             dispatch={dispatch}

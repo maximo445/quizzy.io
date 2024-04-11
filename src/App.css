@@ -1,3 +1,42 @@
+body {
+  background: #cdc9c9;
+}
+
+/* utilities */
+
+.btn {
+  color: rgb(49, 198, 138);
+  background: none;
+  border: solid 3px rgb(49, 198, 138);
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn:hover {
+  color: #fff;
+  background: rgb(49, 198, 138);
+  padding: 3px 8px;
+}
+
+.btn-black {
+  color: #333;
+  background: none;
+  border: solid 3px #333;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-black:hover {
+  color: #fff;
+  background: #333;
+  padding: 3px 8px;
+}
+
+.texty {
+  margin-top: 0;
+  color: rgb(38, 160, 111);
+}
+
 .App {
   text-align: center;
 }
@@ -7,6 +46,27 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 90px;
+  background: #d0cbd7;
+  box-shadow: 3px 3px 10px #858282;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.Header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.Header .logo .image {
+  width: 70px;
+}
+
+.Header .logo .text {
+  color: rgb(27, 119, 82);
 }
 
 .Header .navigation {
@@ -18,22 +78,87 @@
 .Container {
   width: 100%;
   height: 80vh;
+  margin: 90px 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-y: auto;
+  padding: 40px 20px;
 }
 
 .Quizzes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
   width: 75%;
+  gap: 15px;
 }
 
 .Quizz {
   text-align: left;
 }
 
+.Quizz .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #383636;
+  padding: 10px;
+  border: solid 3px #292929;
+  border-radius: 8px;
+  height: 100px;
+}
+
 .correctOption {
   background: greenyellow;
+}
+
+.progress {
+  width: 400px;
+}
+
+.progress-fill {
+  background-color: aquamarine;
+}
+
+/* Quizz Creator */
+
+.CreatorDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.QuestionCreator h3 {
+  color: #fff;
+  margin: 0;
+  padding: 8px 15px;
+  border: solid 2px #333;
+  border-radius: 5px;
+  background: #343333;
+}
+
+.QuestionCreator .options {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.QuestionCreator .options input {
+  padding: 8px;
+  border-radius: 3px;
+  border: none;
+}
+
+.QuestionCreator .options .btn-black {
+  border: solid 3px #333;
+  margin-top: 5px;
+}
+
+.QuestionCreator select {
+  padding: 8px;
+  font-weight: bolder;
+  border-radius: 3px;
+  border: none;
 }

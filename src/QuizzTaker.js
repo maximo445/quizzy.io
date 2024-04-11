@@ -1,4 +1,6 @@
 import { useState } from "react";
+import CountDown from "./CountDown";
+import ProgressBar from "./ProgressBar";
 
 export default function QuizzTaker({ dispatch, quizz }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -7,10 +9,14 @@ export default function QuizzTaker({ dispatch, quizz }) {
 
   const quizzLength = quizz.questions.length;
 
+  const progress = Math.round((currentQuestion / quizzLength) * 100);
+
+  const payload = { answers, quizz: quizz.questions };
+
   if (quizzLength <= currentQuestion) {
     dispatch({
       type: "showResults",
-      payload: { answers, quizz: quizz.questions },
+      payload,
     });
     return;
   }
@@ -42,8 +48,10 @@ export default function QuizzTaker({ dispatch, quizz }) {
 
   return (
     <div className="QuizzTaker">
+      <ProgressBar width={progress} />
       <h3>{question?.question}</h3>
       <div className="options">{options}</div>
+      <CountDown dispatch={dispatch} payload={payload} />
       {questionAnswered && (
         <button
           onClick={() => {

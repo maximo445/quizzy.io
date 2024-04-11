@@ -1,9 +1,10 @@
 export default function Quizz({ dispatch, quizz, index }) {
   return (
     <div className="Quizz">
-      <div>
-        <h3>{quizz.title}</h3>
+      <div className="container">
+        <h3 className="texty">{quizz.title}</h3>
         <button
+          className="btn"
           onClick={() =>
             dispatch({
               type: "goToQuiz",

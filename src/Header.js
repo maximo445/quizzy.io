@@ -1,14 +1,23 @@
+import logo from "./detective-logo.png";
+
 export default function Header({ dispatch }) {
   return (
     <header className="Header">
       <span className="logo">
-        <h1>Quizzy</h1>
+        <img className="image" src={logo} alt="app-logo"></img>
+        <h2 className="text">Quizzy</h2>
       </span>
       <span className="navigation">
-        <button onClick={() => dispatch({ type: "setMode", payload: 0 })}>
+        <button
+          className="btn"
+          onClick={() => dispatch({ type: "setMode", payload: 0 })}
+        >
           Home
         </button>
-        <button onClick={() => dispatch({ type: "setMode", payload: 1 })}>
+        <button
+          className="btn"
+          onClick={() => dispatch({ type: "setMode", payload: 1 })}
+        >
           Create Quizz
         </button>
       </span>

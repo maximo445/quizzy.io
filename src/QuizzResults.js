@@ -3,7 +3,11 @@ export default function QuizzPreview({ dispatch, userResults }) {
     return (
       <h3>
         {question.question}{" "}
-        {userResults.answers.at(index) ? "Correct" : "Wrong"}
+        {userResults.answers.at(index) === undefined
+          ? "Unanswered"
+          : userResults.answers.at(index)
+          ? "Correct"
+          : "Wrong"}
       </h3>
     );
   });
